@@ -5155,7 +5155,7 @@ function updateMixerRun(e = false) {
 			var w = window.innerWidth;
 
 			if (session.widget && session.iFramesAllowed) {
-				w *= (100 - session.widgetwidth);
+				w *= (100 - session.widgetwidth)/100;
 				try {
 					let widget = document.getElementById("widget");
 					if (!widget) {
@@ -31834,7 +31834,7 @@ function updateDirectorsAudio(dataN, UUID) {
 		if (data.equalizer && n == 0) {
 			var label = document.createElement("label");
 			var i = "Low_EQ";
-			//label.id = "label_" +i + "_"+UUID;
+			//label.id = "label_" + i + "_"+UUID;
 			label.htmlFor = "constraints_" + i + "_" + UUID;
 
 			var input = document.createElement("input");
@@ -32238,7 +32238,7 @@ function updateDirectorsAudio(dataN, UUID) {
 								}
 							}
 						}
-					} else if (i.toLowerCase == "torch") {
+					} else if (i.toLowerCase() == "torch") {
 						var opt = new Option("Off", false);
 						input.options.add(opt);
 						opt = new Option("On", true);
@@ -32680,7 +32680,7 @@ function updateDirectorsVideo(data, UUID) {
 							}
 						}
 					}
-				} else if (i.toLowerCase == "torch") {
+				} else if (i.toLowerCase() == "torch") {
 					var opt = new Option("Off", false);
 					input.options.add(opt);
 					opt = new Option("On", true);
@@ -32720,9 +32720,9 @@ function updateDirectorsVideo(data, UUID) {
 			} else if (typeof data.cameraConstraints[i] === "boolean") {
 				var div = document.createElement("div");
 				var label = document.createElement("label");
-				label.id = "label_" + +i + "_" + UUID;
+				label.id = "label_" + i + "_" + UUID;
 				label.name = label.id;
-				label.htmlFor = "constraints_" + +i + "_" + UUID;
+				label.htmlFor = "constraints_" + i + "_" + UUID;
 				label.innerText = capitalizeFirstLetter(i).replace(/([a-z])([A-Z])/g, "$1 $2") + ":";
 				label.style = "display:inline-block; padding:0;";
 				label.dataset.keyname = i;
@@ -32741,7 +32741,7 @@ function updateDirectorsVideo(data, UUID) {
 					}
 				} catch (e) {}
 
-				input.id = "constraints_" + +i + "_" + UUID;
+				input.id = "constraints_" + i + "_" + UUID;
 				input.className = "constraintCameraInput";
 				input.name = input.id;
 				input.style = "display:inline; padding:2px;";
@@ -33480,7 +33480,7 @@ function listAudioSettings() {
 								}
 							}
 						}
-					} else if (i.toLowerCase == "torch") {
+					} else if (i.toLowerCase() == "torch") {
 						var opt = new Option("Off", false);
 						input.options.add(opt);
 						opt = new Option("On", true);
@@ -34146,7 +34146,7 @@ function listCameraSettings() {
 							opt.selected = "true";
 						}
 					}
-				} else if (i.toLowerCase == "torch") {
+				} else if (i.toLowerCase() == "torch") {
 					warnlog("TORCH");
 					var opt = new Option("Off", false);
 					input.options.add(opt);
